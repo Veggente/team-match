@@ -14,14 +14,17 @@ def signup(request):
 
 def create_user(request):
     # TODO: check passwords.
-    role = request.POST.getlist('Role')
+    role = request.POST['Role']
     print(role)
-    username = request.POST.getlist('username')
+    username = request.POST['username']
     print(username)
     if role == 'Faculty':
-        user = User.objects.create(username=username)
-        faculty = Faculty.objects.create(user=user)
-    return HttpResponseRedirect(reverse('groupem:index'))
+#        user = User.objects.create(username=username)
+#        faculty = Faculty.objects.create(user=user)
+#        print('success')
+        return HttpResponseRedirect(reverse('groupem:facultyconfig'))
+    else:
+        return HttpResponseRedirect(reverse('groupem:calendar'))
 
 def calendar(request):
     return render(request, 'groupem/calendar.html')
@@ -45,3 +48,6 @@ def auth(request):
             error_message = "The user "+username+" does not exist."
         return render(request, 'groupem/index.html',
                       {'error_message': error_message})
+
+def facultyconfig(request):
+    return render(request, 'groupem/facultyconfig.html')

@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^create_user/$', views.create_user, name='create_user'),
     url(r'^calendar/$', views.calendar, name='calendar'),
     url(r'^auth/$', views.auth, name='auth'),
+    url(r'^facultyconfig/$', views.facultyconfig, name='facultyconfig'),
 ]
