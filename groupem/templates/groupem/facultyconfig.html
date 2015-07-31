@@ -8,7 +8,8 @@
 		<div class="container">
 			<h1>Create Team for your class!</h1>
 			
-			<form class="form">
+			<form class="form" action="{% url 'groupem:result' %}" method="post">
+			  {% csrf_token %}
 				<p>How many students in each group?</p>
 				<input type="text" placeholder="Enter number">
 				<button type="submit" id="submit-button">Submit</button>

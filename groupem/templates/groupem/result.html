@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
@@ -24,7 +25,7 @@ td, th {
 
 </div>
 
-<script src="/home/menqian/Downloads/Hackthon/teammatch/groupem/static/groupem/d3.js"></script>
-<script src="/home/menqian/Downloads/Hackthon/teammatch/groupem/static/groupem/jquery-2.1.4.js"></script>
-<script src='/home/menqian/Downloads/Hackthon/teammatch/groupem/static/groupem/result.js' type='text/javascript'></script>
+<script src="{% static 'groupem/d3.js' %}"></script>
+<script src="{% static 'groupem/jquery-2.1.4.js' %}"></script>
+<script src="{% static 'groupem/result.js' %}" type="text/javascript"></script>
 </body>

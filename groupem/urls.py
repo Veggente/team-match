@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^calendar/$', views.calendar, name='calendar'),
     url(r'^auth/$', views.auth, name='auth'),
     url(r'^facultyconfig/$', views.facultyconfig, name='facultyconfig'),
+    url(r'^result/$', views.result, name='result'),
 ]

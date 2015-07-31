@@ -51,3 +51,6 @@ def auth(request):
 
 def facultyconfig(request):
     return render(request, 'groupem/facultyconfig.html')
+
+def result(request):
+    return render(request, 'groupem/result.html')
