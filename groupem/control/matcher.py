@@ -31,7 +31,7 @@ def matcher(class_info, students):
         if student.matched:
             continue
         group = [student]
-        for i in xrange(class_info.members_in_team):
+        for i in xrange(class_info.members_in_team - 1):
             findMatchingStudent(class_info, students, student, group)
         student.matched = True
         groups.append(group)
@@ -64,10 +64,10 @@ def _findCommonTime(i, student, group):
         return timeRange
 
 
-class_info = ClassInfo(4, 90)
+class_info = ClassInfo(3, 90)
 
 students = []
-for i in xrange(1020):
+for i in xrange(30):
     free_times = []
     for j in xrange(7):
         free_time = FreeTimeRange(j, random.randint(0, 47), 0)
