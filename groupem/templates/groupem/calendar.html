@@ -15,7 +15,7 @@
 
 </head>
 <body> 
-	<h1>group 'em</h1>
+	<h1>group 'em</h1><a href="{% url 'groupem:index' %}">Logout</a>
 	<div id='calendar'></div>
 	<div id="event_edit_container">
 		<form>
@@ -32,11 +32,5 @@
 			</ul>
 		</form>
 	</div>
-        <div id='fin' class="wrapper">
-            <form>
-                <a href="{% url 'groupem:index' %}">Logout</a>
-            </form>
-        </div>
-
 </body>
 </html>
