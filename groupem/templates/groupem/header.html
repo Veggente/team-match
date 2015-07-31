@@ -1,0 +1,13 @@
+<div style="color:black">
+Welcome to Group 'em,
+{% if user.is_authenticated %}
+{% if user.first_name %}
+{{ user.first_name }}.
+{% else %}
+{{ user.username }}.
+{% endif %}
+<a href="{% url 'bugtracker:logout' %}">Logout</a>
+{% else %}
+Guest.
+{% endif %}
+</div>
