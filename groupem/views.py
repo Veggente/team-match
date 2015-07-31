@@ -21,3 +21,6 @@ def create_user(request):
         user = User.objects.create(username=username)
         faculty = Faculty.objects.create(user=user)
     return HttpResponseRedirect(reverse('groupem:index'))
+
+def calendar(request):
+    return render(request, 'groupem/calendar.html')
