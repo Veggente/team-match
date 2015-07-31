@@ -20,8 +20,9 @@
 	<div class="container">
 		<h1>Welcome</h1>
 		
-		<form class="form">
-			<input type="text" placeholder="Username">
+		<form class="form" action="{% url 'groupem:create_user' %}" method="post">
+		  {% csrf_token %}
+			<input type="text" placeholder="Username" name="username" />
 			<input type="password" placeholder="Password">
 			<input type="password" placeholder="Confirm Password">
 			<select name="Role" dir="rtl" id="role">

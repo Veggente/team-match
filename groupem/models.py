@@ -8,6 +8,12 @@ class Student(models.Model):
     def __unicode__(self):
         return self.user.username
 
+class Faculty(models.Model):
+    user = models.OneToOneField(User)
+
+    def __unicode__(self):
+        return self.user.username
+
 class Class(models.Model):
     name = models.CharField(max_length=200)
 
