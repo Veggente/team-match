@@ -23,7 +23,7 @@ class Student:
         self.matched = False
     
     def __repr__(self):
-        return self.name + " " + " " + str(self.matched)
+        return self.name
 
 def matcher(class_info, students):
     groups = []
@@ -45,7 +45,7 @@ def findMatchingStudent(class_info, students, student, group):
             continue
         commonSegments = 0
         for i in xrange(7):
-            commonTime = findCommonTime(i, otherStudent, group)
+            commonTime = _findCommonTime(i, otherStudent, group)
             if commonTime is not None:
                 commonSegments += commonTime.end - commonTime.start
         if commonSegments * 30 >= class_info.hours_per_week:
@@ -53,7 +53,7 @@ def findMatchingStudent(class_info, students, student, group):
             group.append(otherStudent)
             return
 
-def findCommonTime(i, student, group):
+def _findCommonTime(i, student, group):
     timeRange = FreeTimeRange(0, student.free_times[i].start, student.free_times[i].end)
     for otherMember in group:
         timeRange.start = max(timeRange.start, otherMember.free_times[i].start)
@@ -64,7 +64,7 @@ def findCommonTime(i, student, group):
         return timeRange
 
 
-class_info = ClassInfo(3, 30)
+class_info = ClassInfo(4, 90)
 
 students = []
 for i in xrange(40):
@@ -74,6 +74,8 @@ for i in xrange(40):
         free_time.end = random.randint(free_time.start + 1, 48)
         free_times.append(free_time)
     students.append(Student("A " + str(i), free_times))
+
+random.shuffle(students)
 
 results = matcher(class_info, students)
 
