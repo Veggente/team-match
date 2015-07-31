@@ -67,7 +67,7 @@ def _findCommonTime(i, student, group):
 class_info = ClassInfo(4, 90)
 
 students = []
-for i in xrange(40):
+for i in xrange(1020):
     free_times = []
     for j in xrange(7):
         free_time = FreeTimeRange(j, random.randint(0, 47), 0)
@@ -75,9 +75,26 @@ for i in xrange(40):
         free_times.append(free_time)
     students.append(Student("A " + str(i), free_times))
 
-random.shuffle(students)
+continue_search = True
+searches = 0
 
-results = matcher(class_info, students)
+while continue_search == True and searches < 25:
+    searches += 1
+    random.shuffle(students)
+    results = matcher(class_info, students)
+    group_size = {}
+    for result in results:
+        if len(result) in group_size:
+            group_size[len(result)] += 1
+        else:
+            group_size[len(result)] = 1
+    continue_search = False
+    for i in xrange(class_info.members_in_team):
+        if i in group_size:
+            continue_search = True
+    if continue_search == True:
+        for student in students:
+            student.matched = False
 
 print(results)
-print(len(results))
+print(group_size)
