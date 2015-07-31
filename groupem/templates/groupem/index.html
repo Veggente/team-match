@@ -1,9 +1,11 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html >
   <head>
     <meta charset="UTF-8">
     <title>Team Match login screen</title>  
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="{% static 'groupem/style.css'%}">
 
   <style>
   a {
@@ -23,7 +25,7 @@
 				<input type="text" placeholder="Username">
 				<input type="password" placeholder="Password">
 				<button type="submit" id="login-button">Login</button>
-				<button type="submit" id="register-button"><a href="signup.html">Sign Up</a></button>
+				<button type="submit" id="register-button"><a href="{% url 'groupem:signup' %}">Sign Up</a></button>
 			</form>
 			<!-- <div class="login-help">
 				<p><a href="/signup.html">First Time? Sign up here</a></p>
@@ -47,6 +49,8 @@
 
     <script src="js/index.js"></script>
 
+    <br />
+    <a href='{% templates "calendar.html" %}'> Calendar </a>
     
     
     
